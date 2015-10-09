@@ -30,6 +30,8 @@ gem 'devise', '~> 3.5.2'
 gem 'bootstrap_form'
 # paperclip for images
 gem 'paperclip', '~> 4.3.1'
+# for super cool responsive UI
+gem 'masonry-rails', '~> 0.2.4'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
