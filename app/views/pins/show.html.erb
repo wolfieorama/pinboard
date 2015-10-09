@@ -25,12 +25,17 @@
           <strong>Created by</strong>
           <%= @pin.user.email %>
         </p>
-      </div>
+              </div>
+              <div class="col-md-6">
+                <div class="btn pull-right">
+                <%= link_to 'Edit', edit_pin_path(@pin), class: "btn btn-default" %> |
+                <%= link_to 'Back', pins_path, class: "btn btn-default"  %>
+                </div
+              </div>
             </div>
           </div>
 
-        <%= link_to 'Edit', edit_pin_path(@pin) %> |
-        <%= link_to 'Back', pins_path %>
+
       </div>
   </div>
 </div>
