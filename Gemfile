@@ -32,6 +32,8 @@ gem 'bootstrap_form'
 gem 'paperclip', '~> 4.3.1'
 # for super cool responsive UI
 gem 'masonry-rails', '~> 0.2.4'
+# for upvoting and downvoting stuff
+gem 'acts_as_votable', '~> 0.10.0'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
