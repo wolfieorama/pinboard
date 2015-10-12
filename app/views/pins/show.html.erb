@@ -32,8 +32,10 @@
                   <span class="glyphicon glyphicon-heart">
                     <%= @pin.get_upvotes.size %>
                 <% end %>
+                <% if user_signed_in? %>
                 <%= link_to 'Edit', edit_pin_path(@pin), class: "btn btn-default" %> |
                 <%= link_to 'Back', pins_path, class: "btn btn-default"  %>
+                <% end %>
                 </div
               </div>
             </div>
