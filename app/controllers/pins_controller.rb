@@ -10,6 +10,11 @@ class PinsController < ApplicationController
     else
       @pins = Pin.all.order("created_at DESC")
     end
+
+    respond_to do |format|
+      format.html
+      format.csv { send_data @pins.as_csv}
+    end
   end
 
   # GET /pins/1
