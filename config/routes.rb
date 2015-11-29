@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
-  devise_for :users
+  get 'users/index'
+
+  # devise_for :admins
+  # devise_for :users
   resources :pins do
     member do
       put "like", to: "pins#upvote"
@@ -11,6 +14,19 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   root 'pins#landing'
+
+  devise_for :users, :controllers => { :registrations => "registrations" }
+
+  devise_for :admins, :controllers => { :registrations => "registrations" }
+
+  match '/users',   to: 'users#index',   via: 'get'
+
+  match '/users/:id',     to: 'users#show',       via: 'get'
+  resources :users, :only =>[:show]
+
+
+
+
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
