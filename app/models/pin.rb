@@ -1,6 +1,7 @@
 class Pin < ActiveRecord::Base
-
-  attr_accessor :status
+  
+  scope :copyrighted, -> { where(copyrighted: true) }
+  scope :pending_copyright, -> { where(pending_copyright: true) }
 
   validates :title, :description, presence: true
   acts_as_votable
@@ -23,8 +24,4 @@ class Pin < ActiveRecord::Base
       end
     end
   end
-
-  scope :copyrighted, -> { where(copyrighted: true) }
-  scope :pending_copyright, -> { where(pending_copyright: true) }
-
 end

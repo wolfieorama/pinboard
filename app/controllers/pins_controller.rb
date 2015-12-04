@@ -8,7 +8,7 @@ class PinsController < ApplicationController
     if params[:search]
       @pins = Pin.search(params[:search]).order("created_at DESC")
     else
-      @pins = Pin.all.order("created_at DESC")
+      @pins = Pin.where(pending_copyright: true)
     end
 
     respond_to do |format|
@@ -87,6 +87,6 @@ class PinsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def pin_params
-      params.require(:pin).permit(:title, :description, :image)
+      params.require(:pin).permit(:title, :description, :image, :status)
     end
 end
