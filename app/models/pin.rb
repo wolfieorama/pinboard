@@ -38,5 +38,9 @@ class Pin < ActiveRecord::Base
       transition vetting: :published
     end
 
+    event :share do
+      transition published: :shared
+    end
+
   end
 end
