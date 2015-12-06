@@ -34,6 +34,9 @@ gem 'paperclip', '~> 4.3.1'
 gem 'masonry-rails', '~> 0.2.4'
 # for upvoting and downvoting stuff
 gem 'acts_as_votable', '~> 0.10.0'
+
+gem 'state_machines-activerecord'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

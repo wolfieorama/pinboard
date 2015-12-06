@@ -1,5 +1,5 @@
 class Pin < ActiveRecord::Base
-  
+
   scope :copyrighted, -> { where(copyrighted: true) }
   scope :pending_copyright, -> { where(pending_copyright: true) }
 
@@ -23,5 +23,20 @@ class Pin < ActiveRecord::Base
         csv << item.attributes.values_at(*column_names)
       end
     end
+  end
+
+  state_machine :state, initial: :pending do
+    event :process do
+      transition pending: :vetting
+    end
+
+    event :failed do
+      transition vetting: :failed
+    end
+
+    event :publish do
+      transition vetting: :published
+    end
+
   end
 end
