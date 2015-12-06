@@ -26,6 +26,8 @@ class Pin < ActiveRecord::Base
   end
 
   state_machine :state, initial: :pending do
+    after_transition vetting: :publish, do: :check_image_copyright
+
     event :process do
       transition pending: :vetting
     end
@@ -43,4 +45,13 @@ class Pin < ActiveRecord::Base
     end
 
   end
+
+  def check_image_copyright
+    if true
+      share 
+    else
+      failed
+    end
+  end
+
 end
